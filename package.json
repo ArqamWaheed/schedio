@@ -1,9 +1,9 @@
 {
   "name": "schedio",
   "displayName": "Schedio",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Highlight text to create Google Calendar events instantly",
-  "author": "gammatix",
+  "author": "arqamwd",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",

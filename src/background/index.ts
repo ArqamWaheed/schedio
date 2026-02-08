@@ -63,7 +63,13 @@ chrome.commands.onCommand.addListener(async (command) => {
 })
 
 // Listen for messages from the content script (e.g. CONFIRM_EVENT)
-chrome.runtime.onMessage.addListener((message: Message, _sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((message: Message | { type: "CHECK_AUTH" }, _sender, sendResponse) => {
+  if (message.type === "CHECK_AUTH") {
+    chrome.identity.getAuthToken({ interactive: false }, (token) => {
+      sendResponse({ hasAccount: !!token })
+    })
+    return true
+  }
   if (message.type === "CONFIRM_EVENT") {
     createCalendarEvent(message.event)
       .then((result) => sendResponse({ success: true, event: result }))
