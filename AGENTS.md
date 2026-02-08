@@ -24,25 +24,25 @@
 
 ## Current State
 **Last Updated:** 2026-02-08
-**Working On:** Phase 1 — Foundation
-**Recently Completed:** Plasmo + Tailwind + Shadcn init, manifest permissions
+**Working On:** Complete — All phases implemented
+**Recently Completed:** Phase 1, 2, and 3
 **Blocked By:** None
 
 ## Roadmap (5-Day MVP)
 ### Phase 1: Foundation (Day 1-2)
 - [x] Initialize Plasmo project with Tailwind/Shadcn
 - [x] Configure `manifest.json` for Identity, Storage, and ContextMenus
-- [ ] Set up Google Cloud Console OAuth 2.0 Client ID
+- [x] Set up Google Cloud Console OAuth 2.0 Client ID
 
 ### Phase 2: Core Logic (Day 3-4)
-- [ ] Implement Background Script (Context Menu listener)
-- [ ] Build Gemini 1.5 Flash parsing utility (JSON Mode)
-- [ ] Create Raycast-style UI Modal (Shadow DOM injection)
+- [x] Implement Background Script (Context Menu listener)
+- [x] Build Gemini 1.5 Flash parsing utility (JSON Mode)
+- [x] Create Raycast-style UI Modal (Shadow DOM injection)
 
 ### Phase 3: Launch (Day 5)
-- [ ] Integrate Google Calendar API (`events.insert`)
-- [ ] Implement Success Toasts and Error Handling
-- [ ] Configure Global Shortcut (`Cmd+Shift+S`)
+- [x] Integrate Google Calendar API (`events.insert`)
+- [x] Implement Success Toasts and Error Handling
+- [x] Configure Global Shortcut (`Cmd+Shift+S`)
 
 ## What NOT To Do
 - Do NOT use standard `fetch` in Content Scripts for external APIs (use Background Scripts to avoid CSP issues).
