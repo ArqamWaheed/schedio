@@ -51,8 +51,8 @@
     "commands": {
       "create-event": {
         "suggested_key": {
-          "default": "Ctrl+Shift+S",
-          "mac": "Command+Shift+S"
+          "default": "Alt+Shift+S",
+          "mac": "Alt+Shift+S"
         },
         "description": "Create event from selected text"
       }

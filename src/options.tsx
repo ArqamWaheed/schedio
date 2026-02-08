@@ -1,4 +1,4 @@
-import { KeyRound, ExternalLink, CheckCircle, UserCog } from "lucide-react"
+import { KeyRound, ExternalLink, CheckCircle, UserCog, Keyboard } from "lucide-react"
 import { useEffect, useState } from "react"
 
 import { Button } from "~components/ui/button"
@@ -146,9 +146,7 @@ function OptionsPage() {
               onClick={() => {
                 chrome.identity.getAuthToken({ interactive: false }, (token) => {
                   if (token) {
-                    // Revoke the token from Google's servers
                     fetch(`https://accounts.google.com/o/oauth2/revoke?token=${token}`)
-                    // Remove it from Chrome's cache
                     chrome.identity.removeCachedAuthToken({ token })
                   }
                   chrome.identity.clearAllCachedAuthTokens(() => {
@@ -157,6 +155,34 @@ function OptionsPage() {
                 })
               }}>
               Switch Google Account
+            </Button>
+          </CardFooter>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base flex items-center gap-2">
+              <Keyboard className="h-5 w-5 text-blue-600" />
+              Keyboard Shortcut
+            </CardTitle>
+          </CardHeader>
+
+          <CardContent className="space-y-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm text-gray-700 space-y-2">
+              <p>
+                The default shortcut is <strong>Alt + Shift + S</strong>. You can change it
+                to any key combination you prefer using Chrome's built-in shortcut editor.
+              </p>
+            </div>
+          </CardContent>
+
+          <CardFooter>
+            <Button
+              variant="outline"
+              onClick={() => {
+                chrome.tabs.create({ url: "chrome://extensions/shortcuts" })
+              }}>
+              Change Keyboard Shortcut
             </Button>
           </CardFooter>
         </Card>
