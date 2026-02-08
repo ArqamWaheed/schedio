@@ -23,15 +23,15 @@
 - Use `.github/copilot-instructions.md` for persistent project rules.
 
 ## Current State
-**Last Updated:** [Current Date]
-**Working On:** Initial Project Setup
-**Recently Completed:** None
-**Blocked By:** Need to initialize Plasmo project
+**Last Updated:** 2026-02-08
+**Working On:** Phase 1 — Foundation
+**Recently Completed:** Plasmo + Tailwind + Shadcn init, manifest permissions
+**Blocked By:** None
 
 ## Roadmap (5-Day MVP)
 ### Phase 1: Foundation (Day 1-2)
-- [ ] Initialize Plasmo project with Tailwind/Shadcn
-- [ ] Configure `manifest.json` for Identity, Storage, and ContextMenus
+- [x] Initialize Plasmo project with Tailwind/Shadcn
+- [x] Configure `manifest.json` for Identity, Storage, and ContextMenus
 - [ ] Set up Google Cloud Console OAuth 2.0 Client ID
 
 ### Phase 2: Core Logic (Day 3-4)
