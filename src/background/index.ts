@@ -79,6 +79,12 @@ chrome.runtime.onMessage.addListener((message: Message | { type: "CHECK_AUTH" },
 })
 
 // Google Calendar API integration
+// Strip timezone offset from ISO string to get bare local datetime
+// e.g. "2026-02-09T14:00:00+05:00" → "2026-02-09T14:00:00"
+function stripOffset(iso: string): string {
+  return iso.replace(/([+-]\d{2}:\d{2}|Z)$/, "")
+}
+
 async function createCalendarEvent(event: CalendarEvent) {
   const token = await new Promise<string>((resolve, reject) => {
     chrome.identity.getAuthToken({ interactive: true }, (token) => {
@@ -89,6 +95,8 @@ async function createCalendarEvent(event: CalendarEvent) {
       resolve(token!)
     })
   })
+
+  const tz = event.timeZone || Intl.DateTimeFormat().resolvedOptions().timeZone
 
   const response = await fetch(
     "https://www.googleapis.com/calendar/v3/calendars/primary/events",
@@ -103,12 +111,12 @@ async function createCalendarEvent(event: CalendarEvent) {
         description: event.description,
         location: event.location,
         start: {
-          dateTime: event.startTime,
-          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+          dateTime: stripOffset(event.startTime),
+          timeZone: tz
         },
         end: {
-          dateTime: event.endTime,
-          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+          dateTime: stripOffset(event.endTime),
+          timeZone: tz
         }
       })
     }

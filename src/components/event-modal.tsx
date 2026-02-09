@@ -35,20 +35,15 @@ function formatTime(iso: string): string {
   } catch { return "" }
 }
 
-// Build ISO string with timezone offset from a Date
-function toISOWithOffset(d: Date): string {
-  const offset = -d.getTimezoneOffset()
-  const sign = offset >= 0 ? "+" : "-"
-  const absOff = Math.abs(offset)
-  const offH = String(Math.floor(absOff / 60)).padStart(2, "0")
-  const offM = String(absOff % 60).padStart(2, "0")
+// Build ISO string WITHOUT offset — timeZone field handles it
+function toLocalISO(d: Date): string {
   const year = d.getFullYear()
   const month = String(d.getMonth() + 1).padStart(2, "0")
   const day = String(d.getDate()).padStart(2, "0")
   const hours = String(d.getHours()).padStart(2, "0")
   const minutes = String(d.getMinutes()).padStart(2, "0")
   const seconds = String(d.getSeconds()).padStart(2, "0")
-  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}${sign}${offH}:${offM}`
+  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`
 }
 
 // Parse "MM/DD/YYYY" + "H:MM AM/PM" back into an ISO string
@@ -65,7 +60,7 @@ function parseDateTime(dateStr: string, timeStr: string, fallbackIso: string): s
     if (ap === "AM" && h === 12) h = 0
 
     const d = new Date(yyyy, mm - 1, dd, h, m)
-    return toISOWithOffset(d)
+    return toLocalISO(d)
   } catch {
     return fallbackIso
   }
@@ -110,13 +105,13 @@ export function EventModal({ event, onConfirm, onDismiss, isLoading }: EventModa
 
   // Handle calendar picker selection
   const handleStartPick = (d: Date) => {
-    const iso = toISOWithOffset(d)
+    const iso = toLocalISO(d)
     setEdited((prev) => ({ ...prev, startTime: iso }))
     setStartDate(formatDate(iso))
     setStartTime(formatTime(iso))
   }
   const handleEndPick = (d: Date) => {
-    const iso = toISOWithOffset(d)
+    const iso = toLocalISO(d)
     setEdited((prev) => ({ ...prev, endTime: iso }))
     setEndDate(formatDate(iso))
     setEndTime(formatTime(iso))
@@ -127,7 +122,8 @@ export function EventModal({ event, onConfirm, onDismiss, isLoading }: EventModa
     const finalEvent = {
       ...edited,
       startTime: parseDateTime(startDate, startTime, edited.startTime),
-      endTime: parseDateTime(endDate, endTime, edited.endTime)
+      endTime: parseDateTime(endDate, endTime, edited.endTime),
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
     }
     onConfirm(finalEvent)
   }

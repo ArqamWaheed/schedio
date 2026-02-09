@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import React from "react"
 import { useState } from "react"
 
 const DAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
