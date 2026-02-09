@@ -66,6 +66,10 @@ chrome.commands.onCommand.addListener(async (command) => {
 chrome.runtime.onMessage.addListener((message: Message | { type: "CHECK_AUTH" }, _sender, sendResponse) => {
   if (message.type === "CHECK_AUTH") {
     chrome.identity.getAuthToken({ interactive: false }, (token) => {
+      if (chrome.runtime.lastError) {
+        sendResponse({ hasAccount: false })
+        return
+      }
       sendResponse({ hasAccount: !!token })
     })
     return true

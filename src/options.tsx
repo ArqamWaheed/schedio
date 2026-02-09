@@ -145,6 +145,7 @@ function OptionsPage() {
               variant="outline"
               onClick={() => {
                 chrome.identity.getAuthToken({ interactive: false }, (token) => {
+                  if (chrome.runtime.lastError) { /* user not signed in — ignore */ }
                   if (token) {
                     fetch(`https://accounts.google.com/o/oauth2/revoke?token=${token}`)
                     chrome.identity.removeCachedAuthToken({ token })
