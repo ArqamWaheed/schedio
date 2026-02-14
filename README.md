@@ -37,14 +37,17 @@ pnpm install
 pnpm package
 ```
 
-This creates a production-ready `.zip` in the `build/` directory.
+This creates `build/chrome-mv3-prod.zip`.
 
 ### 3. Load in Chrome
 
-1. Open **chrome://extensions**
-2. Enable **Developer mode** (top-right toggle)
-3. Click **Load unpacked**
-4. Select the `build/chrome-mv3-prod` folder (not the `.zip`)
+1. **Extract the zip:**
+   - Find `build/chrome-mv3-prod.zip`
+   - Extract it to a folder (right-click → "Extract All" on Windows, double-click on Mac, or `unzip build/chrome-mv3-prod.zip -d build/chrome-mv3-prod` in terminal)
+2. Open **chrome://extensions**
+3. Enable **Developer mode** (top-right toggle)
+4. Click **Load unpacked**
+5. Select the **extracted folder** (`build/chrome-mv3-prod`)
 
 ### 4. Use It
 
@@ -149,7 +152,7 @@ If the built-in OAuth client has hit its 100-user cap, or you want full control,
    pnpm package
    ```
 
-   Then load `build/chrome-mv3-prod` as an unpacked extension (see [Quick Start](#-quick-start-first-100-users) step 3).
+   Extract `build/chrome-mv3-prod.zip`, then load the extracted folder as an unpacked extension (see [Quick Start](#-quick-start-first-100-users) step 3).
 
 ### Step 4: Add Your Gemini Key in the Extension
 
