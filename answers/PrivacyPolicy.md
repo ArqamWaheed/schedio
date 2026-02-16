@@ -5,6 +5,8 @@ Last updated: [DATE]
 1. Overview
 Schedio is a browser extension that converts highlighted text into Google Calendar events using an on-device UI and direct calls to third-party APIs (Gemini for parsing and Google Calendar for event creation). This privacy policy explains what data is used, how it is processed, and how you can control it.
 
+Schedio does not collect, sell, rent, or share personal data with third parties for advertising or marketing purposes.
+
 2. Information collected and how it’s used
 - Highlighted text: When you create an event, the selected text is sent to Gemini (Google's Generative Language API) to parse event details. That parsed data is used to pre-fill the event modal.
 - Google OAuth token: Used to call the Google Calendar API and create events in your calendar. The token is obtained only with your consent via chrome.identity and is not stored externally by Schedio.
@@ -12,7 +14,7 @@ Schedio is a browser extension that converts highlighted text into Google Calend
 
 3. Third-party services
 - Gemini / Google Generative Language API: Selected text may be sent to Gemini for parsing. The extension does not act as an intermediary server — calls go directly from the extension to Google’s APIs.
-- Google Calendar API: Events are created using your Google account via OAuth; Schedio does not read or export your calendar events beyond creating the event you confirm.
+- Google Calendar API: Events are created using your Google account via OAuth; Schedio does not read, access, export, or analyze existing calendar events. It only creates a new event when you explicitly confirm.
 
 4. Data storage and retention
 Schedio does not persist selected text or created events on any external servers. User settings (including an optional Gemini API key) are stored locally in the browser's storage.

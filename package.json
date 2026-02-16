@@ -31,7 +31,6 @@
     "typescript": "5.3.3"
   },
   "manifest": {
-    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA04U3eicSQ4gX+raJv+hwvIp1wgmoCjsrTqZsgqIMc3B/cbpYqOMiR0s4zCRla2jTWoNFZJtFGsgd36aIfgYJXvFMJjdGBU0oawGq0aTnxhGTtWB10w5fGbmVz2KBQspWAHRK3LU+MVfiqAEz6yXrM8QlGVmER64CpSnGv0do4sQbswMXw0g7SymFIM0/fbVvAWelrmqE1Q7drsq1n8n7NOvs/df7QU4Du6yJKX1F+J3Aqg43j+1Qr7CQJC5t6X6Ivcqcpp4vpj3bOXGhum0XnAkkZmQXKM4orZXLSuMhLp62phijaqnYOBFgTmOhNZMauHa+xOyOA2WsFWGxG80kmQIDAQAB",
     "permissions": [
       "identity",
       "storage",
