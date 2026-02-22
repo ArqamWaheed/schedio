@@ -225,4 +225,4 @@ Load the dev build from `.plasmo/chrome-mv3-dev` during development.
 
 ## 📝 License
 
-MIT © [arqamwd](https://github.com/arqamwd)
+MIT © [Arqam Waheed](https://github.com/arqamwaheed)
