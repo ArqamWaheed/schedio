@@ -9,7 +9,7 @@ Highlight a meeting time, right-click → **"Create Event with Schedio"** (or us
 ### How It Works
 
 1. **Highlight** any text containing event details on any webpage
-2. **Trigger** via right-click context menu or `Alt+Shift+S` shortcut
+2. **Trigger** via right-click context menu or `Alt+Shift+S` shortcutgit 
 3. **Review** the AI-parsed event in an inline modal (title, date, time, location — all pre-filled)
 4. **Confirm** with one click — event is created in Google Calendar instantly
 
